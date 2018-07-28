@@ -12,12 +12,8 @@ const image = require('./controllers/image');
 const db = knex({
     client: 'pg',
     connection: {
-        host: 'postgresql-metric-41841',
-        user: 'postgres',
-        password: 'ptest123', //This is a throw away password. I don't like how it's here for the
-        // whole world to see. A more secure method must exist and for professional applications
-        // you will need to figure it out.
-        database: 'face-recognition'
+        host: process.env.DATABASE_URL,
+        ssl: true
     }
 });
 
